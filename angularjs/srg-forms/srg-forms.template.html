@@ -1,0 +1,35 @@
+<div>
+  <h4>/command [who/channel] [what] [when]</h4>
+  <p>
+    <label>Who/Channel</label>
+    <input type="text" required/>
+  </p>
+  <p>
+    <label>What</label>
+    <input type="text" required/>
+  </p>
+  <p><!--TODO: 특정 일시 또는 반복 일정을 선택할 수 있도록 해야한다-->
+    <label>When (Specific Datetime)</label>
+    <input type="datetime-local" name="input" ng-model="value" placeholder="yyyy-MM-ddTHH:mm:ss" min="2010-01-01T00:00:00" max="2016-12-31T00:00:00" required />
+  </p>
+  <p>
+    <label>When (Repeat Datetime)</label>
+  </p>
+  <p>
+    <!--TODO: 아이콘으로 하면 이쁠듯-->
+    <label>Sunday</label>
+    <input type="checkbox" />
+    <label>Monday</label>
+    <input type="checkbox" />
+    <label>Tuesday</label>
+    <input type="checkbox" />
+    <label>Wednesday</label>
+    <input type="checkbox" />
+    <label>Thursday</label>
+    <input type="checkbox" />
+    <label>Friday</label>
+    <input type="checkbox" />
+    <label>Saturday</label>
+    <input type="checkbox" />
+  </p>
+</div>
