@@ -2,7 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "https://pineoc.github.io/angular-slack-reminder-gen/angular/dist/",
+    "baseUrl": "https://pineoc.github.io/angular-slack-reminder-gen/angular/dist/angular/",
     "outDir": "./dist",
     "sourceMap": true,
     "declaration": false,
