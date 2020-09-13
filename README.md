@@ -6,4 +6,4 @@
 
 ## angular version
 
-<https://pineoc.github.io/angular-slack-reminder-gen/angular/dist/index.html>
+<https://pineoc.github.io/angular-slack-reminder-gen/angular/dist/angular/index.html>
