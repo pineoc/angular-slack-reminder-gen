@@ -1,1 +1,1 @@
-angular.module('srgApp', []);
+angular.module('srgApp', ['$scope', '$filter']);
