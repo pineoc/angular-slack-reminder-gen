@@ -9,39 +9,50 @@
       <label>What</label>
       <input type="text" ng-model="what" required/>
     </p>
-    <p><!--TODO: 특정 일시 또는 반복 일정을 선택할 수 있도록 해야한다-->
-      <label>When (Specific Date)</label>
-      <input type="date" name="input" ng-model="date" placeholder="yyyy-MM-dd" required />
-    </p>
-    <p>
-      <label>When (Specific Time)</label>
-      <input type="time" name="input" ng-model="time" required />
-    </p>
-    <p>
-      <label>When (Repeat Datetime)</label>
-    </p>
-    <p>
-      <!--TODO: 아이콘으로 하면 이쁠듯-->
-      <label>Sunday</label>
-      <input type="checkbox" ng-model="sunday" value="sunday" />
-      <label>Monday</label>
-      <input type="checkbox" ng-model="monday" value="monday"/>
-      <label>Tuesday</label>
-      <input type="checkbox" ng-model="tuesday" value="tuesday" />
-      <label>Wednesday</label>
-      <input type="checkbox" ng-model="wednesday" value="wednesday" />
-      <label>Thursday</label>
-      <input type="checkbox" ng-model="thursday" value="thursday" />
-      <label>Friday</label>
-      <input type="checkbox" ng-model="friday" value="friday" />
-      <label>Saturday</label>
-      <input type="checkbox" ng-model="saturday" value="saturday" />
-    </p>
+    <label>Repeat / Once</label>
+    <select ng-model="reminderType" ng-init="reminderType='once'">
+      <option value="repeat">Repeat</option>
+      <option value="once" selected>Once</option>
+    </select>
+    <div ng-if="reminderType == 'once'">
+      <p><!--TODO: 특정 일시 또는 반복 일정을 선택할 수 있도록 해야한다-->
+        <label>When (Specific Date)</label>
+        <input type="date" name="input" ng-model="$parent.date" required />
+      </p>
+      <p>
+        <label>When (Specific Time)</label>
+        <input type="time" name="input" ng-model="$parent.time" required />
+      </p>
+    </div>
+    <div ng-if="reminderType == 'repeat'">
+      <p>
+        <!--TODO: 아이콘으로 하면 이쁠듯-->
+        <label>Sunday</label>
+        <input type="checkbox" ng-model="checkboxModel.sunday"/>
+        <label>Monday</label>
+        <input type="checkbox" ng-model="checkboxModel.monday"/>
+        <label>Tuesday</label>
+        <input type="checkbox" ng-model="checkboxModel.tuesday"/>
+        <label>Wednesday</label>
+        <input type="checkbox" ng-model="checkboxModel.wednesday"/>
+        <label>Thursday</label>
+        <input type="checkbox" ng-model="checkboxModel.thursday"/>
+        <label>Friday</label>
+        <input type="checkbox" ng-model="checkboxModel.friday"/>
+        <label>Saturday</label>
+        <input type="checkbox" ng-model="checkboxModel.saturday"/>
+      </p>
+      <p>
+        <label>When (Specific Time)</label>
+        <input type="time" name="input" ng-model="$parent.time" required />
+      </p>
+    </div>
     <p>
       <input type="submit" value="Generate!">
     </p>
   </form>
   <p>
-    <label>command result</label> <input type="text" ng-model="command" disabled/>
+    <label>Slack Command result</label><br>
+    <input type="text" size="60" ng-model="command" disabled/>
   </p>
 </div>
