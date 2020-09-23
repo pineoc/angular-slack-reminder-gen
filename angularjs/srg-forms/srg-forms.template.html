@@ -17,11 +17,11 @@
     <div ng-if="reminderType == 'once'">
       <p><!--TODO: 특정 일시 또는 반복 일정을 선택할 수 있도록 해야한다-->
         <label>When (Specific Date)</label>
-        <input type="date" name="input" ng-model="$parent.date" required />
+        <input type="date" name="input" ng-model="forms.date" required />
       </p>
       <p>
         <label>When (Specific Time)</label>
-        <input type="time" name="input" ng-model="$parent.time" required />
+        <input type="time" name="input" ng-model="forms.time" required />
       </p>
     </div>
     <div ng-if="reminderType == 'repeat'">
@@ -44,7 +44,7 @@
       </p>
       <p>
         <label>When (Specific Time)</label>
-        <input type="time" name="input" ng-model="$parent.time" required />
+        <input type="time" name="input" ng-model="forms.time" required />
       </p>
     </div>
     <p>
