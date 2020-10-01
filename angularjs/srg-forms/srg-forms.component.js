@@ -1,4 +1,4 @@
-var module = angular.module('srgApp', []);
+var module = angular.module('srgApp', ['ngMaterial']);
 
 // This name is what AngularJS uses to match to the `<srg-forms>` element.
 module.component('srgForms', {

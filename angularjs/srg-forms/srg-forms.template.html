@@ -1,58 +1,67 @@
-<div>
-  <h4>/command [who/channel] [what] [when]</h4>
-  <form ng-submit="$ctrl.generateCommand()">
-    <p>
-      <label>Who/Channel</label>
-      <input type="text" ng-model="who" required/>
-    </p>
-    <p>
-      <label>What</label>
-      <input type="text" ng-model="what" required/>
-    </p>
-    <label>Repeat / Once</label>
-    <select ng-model="reminderType" ng-init="reminderType='once'">
-      <option value="repeat">Repeat</option>
-      <option value="once" selected>Once</option>
-    </select>
-    <div ng-if="reminderType == 'once'">
-      <p><!--TODO: 특정 일시 또는 반복 일정을 선택할 수 있도록 해야한다-->
-        <label>When (Specific Date)</label>
-        <input type="date" name="input" ng-model="forms.date" required />
-      </p>
-      <p>
-        <label>When (Specific Time)</label>
-        <input type="time" name="input" ng-model="forms.time" required />
-      </p>
-    </div>
-    <div ng-if="reminderType == 'repeat'">
-      <p>
-        <!--TODO: 아이콘으로 하면 이쁠듯-->
-        <label>Sunday</label>
-        <input type="checkbox" ng-model="checkboxModel.sunday"/>
-        <label>Monday</label>
-        <input type="checkbox" ng-model="checkboxModel.monday"/>
-        <label>Tuesday</label>
-        <input type="checkbox" ng-model="checkboxModel.tuesday"/>
-        <label>Wednesday</label>
-        <input type="checkbox" ng-model="checkboxModel.wednesday"/>
-        <label>Thursday</label>
-        <input type="checkbox" ng-model="checkboxModel.thursday"/>
-        <label>Friday</label>
-        <input type="checkbox" ng-model="checkboxModel.friday"/>
-        <label>Saturday</label>
-        <input type="checkbox" ng-model="checkboxModel.saturday"/>
-      </p>
-      <p>
-        <label>When (Specific Time)</label>
-        <input type="time" name="input" ng-model="forms.time" required />
-      </p>
-    </div>
-    <p>
-      <input type="submit" value="Generate!">
-    </p>
-  </form>
-  <p>
-    <label>Slack Command result</label><br>
-    <input type="text" size="60" ng-model="command" disabled/>
-  </p>
-</div>
+<md-content class="md-padding" layout-xs="column" layout="row">
+  <div flex-xs flex-gt-xs="50" layout="column" layout-align="center">
+    <md-card class="md-padding" layout-xs="column">
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">Slack Reminder Generator</span>
+          <span class="md-subhead">/command [who/channel] [what] [when]</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+        <form ng-submit="$ctrl.generateCommand()">
+          <md-input-container layout="row">
+            <label>Who/Channel</label>
+            <input ng-model="who" required>
+          </md-input-container>
+          <md-input-container layout="row">
+            <label>What</label>
+            <input ng-model="what" required>
+          </md-input-container>
+          <md-input-container>
+            <label>Repeat type</label>
+            <md-select ng-model="reminderType" ng-init="reminderType='once'">
+              <md-option value="repeat">Repeat</md-option>
+              <md-option value="once">Once</md-option>
+            </md-select>
+          </md-input-container>
+          <div ng-if="reminderType == 'once'">
+            <md-input-container>
+              <label>When (Date)</label>
+              <input type="date" name="input" ng-model="forms.date" required />
+            </md-input-container>
+            <md-input-container>
+              <label>When (Time)</label>
+              <input type="time" name="input" ng-model="forms.time" required />
+            </md-input-container>
+          </div>
+          <div ng-if="reminderType == 'repeat'">
+            <fieldset class="standard">
+              <legend>Weekly repeat</legend>
+              <!--TODO: 아이콘으로 하면 이쁠듯-->
+              <md-checkbox ng-model="checkboxModel.sunday" aria-label="Sunday">Sunday</md-checkbox>
+              <md-checkbox ng-model="checkboxModel.monday" aria-label="Monday">Monday</md-checkbox>
+              <md-checkbox ng-model="checkboxModel.tuesday" aria-label="Tuesday">Tuesday</md-checkbox>
+              <md-checkbox ng-model="checkboxModel.wednesday" aria-label="Wednesday">Wednesday</md-checkbox>
+              <md-checkbox ng-model="checkboxModel.thursday" aria-label="Thursday">Thursday</md-checkbox>
+              <md-checkbox ng-model="checkboxModel.friday" aria-label="Friday">Friday</md-checkbox>
+              <md-checkbox ng-model="checkboxModel.saturday" aria-label="Saturday">Saturday</md-checkbox>
+            </fieldset>
+            <md-input-container>
+              <label>When (Time)</label>
+              <input type="time" name="input" ng-model="forms.time" required />
+            </md-input-container>
+          </div>
+          <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+            <md-button class="md-raised md-primary" type="submit">Generate!</md-button>
+          </section>
+          
+          
+        </form>
+        <md-input-container>
+          <label>Slack Command result</label><br>
+          <input size="60" ng-model="command" disabled/>
+        </md-input-container>
+      </md-card-content>
+    </md-card>
+  </div>
+</md-content>
